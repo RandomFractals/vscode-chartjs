@@ -59,6 +59,7 @@ class ChartPreview {
      */
     constructor(viewType, extensionPath, uri, viewColumn, template, panel) {
         this._disposables = [];
+        this._html = '';
         // save ext path, document uri, and create prview uri
         this._extensionPath = extensionPath;
         this._uri = uri;
@@ -80,9 +81,13 @@ class ChartPreview {
         // create html template for the webview with scripts path replaced
         const scriptsPath = vscode_1.Uri.file(path.join(this._extensionPath, 'scripts'))
             .with({ scheme: 'vscode-resource' }).toString(true);
-        this._html = template.content.replace(/\{scripts\}/g, scriptsPath);
+        if (template) {
+            this._html = template.content.replace(/\{scripts\}/g, scriptsPath);
+        }
         // initialize webview panel
-        this._panel = panel;
+        if (panel) {
+            this._panel = panel;
+        }
         this.initWebview(viewType, viewColumn);
         this.configure();
     } // end of constructor()

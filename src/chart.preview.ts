@@ -32,7 +32,9 @@ export class ChartPreviewSerializer implements WebviewPanelSerializer {
    * @param extensionPath Extension path for loading scripts, examples and data.
    * @param template Webview preview html template.
    */
-  constructor(private viewType: string, private extensionPath: string, private template: Template) {
+  constructor(private viewType: string, 
+    private extensionPath: string, 
+    private template: Template | undefined) {
     this._logger = new Logger(`${this.viewType}.serializer:`, config.logLevel);
   }
 
@@ -67,7 +69,7 @@ export class ChartPreview {
   private _previewUri: Uri;
   private _fileName: string;
   private _title: string;
-  private _html: string;
+  private _html: string = '';
   private _panel: WebviewPanel;
   private _logger: Logger;
 
@@ -85,8 +87,8 @@ export class ChartPreview {
     extensionPath: string, 
     uri: Uri, 
     viewColumn: ViewColumn, 
-    template: Template, 
-    panel: WebviewPanel) {
+    template: Template | undefined, 
+    panel?: WebviewPanel) {
 
     // save ext path, document uri, and create prview uri
     this._extensionPath = extensionPath;
@@ -111,10 +113,14 @@ export class ChartPreview {
     // create html template for the webview with scripts path replaced
     const scriptsPath: string = Uri.file(path.join(this._extensionPath, 'scripts'))
       .with({scheme: 'vscode-resource'}).toString(true);
-    this._html = template.content.replace(/\{scripts\}/g, scriptsPath);
+    if (template) {
+      this._html = template.content.replace(/\{scripts\}/g, scriptsPath);
+    }
 
     // initialize webview panel
-    this._panel = panel;
+    if (panel) {
+      this._panel = panel;
+    }
     this.initWebview(viewType, viewColumn);
     this.configure();
   } // end of constructor()
