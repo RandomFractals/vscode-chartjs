@@ -39,6 +39,8 @@
   "activationEvents": [
     "onCommand:chart.preview",
     "onCommand:chart.samples",
+    "onWebviewPanel:chart.preview",
+    "onWebviewPanel:chart.samples",
     "onLanguage:json5"
   ],
   "main": "./out/extension.js",
