@@ -139,7 +139,7 @@ function showChartList(examplesPath, examplesExtension) {
         fileNames.forEach(fileName => fileItems.push({ label: `📊 ${fileName}` }));
         const selectedExample = yield vscode_1.window.showQuickPick(fileItems, { canPickMany: false });
         if (selectedExample) {
-            const exampleFileName = selectedExample.label.replace('📈 ', '');
+            const exampleFileName = selectedExample.label.replace('📊 ', '');
             const exampleFileUri = vscode_1.Uri.file(path.join(examplesPath, exampleFileName));
             vscode_1.workspace.openTextDocument(exampleFileUri).then(document => {
                 vscode_1.window.showTextDocument(document, vscode_1.ViewColumn.One);

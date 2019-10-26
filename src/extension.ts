@@ -165,7 +165,7 @@ async function showChartList(examplesPath: string, examplesExtension: string): P
   ));
   const selectedExample: QuickPickItem | undefined = await window.showQuickPick(fileItems, {canPickMany: false});
   if (selectedExample) {
-    const exampleFileName: string = selectedExample.label.replace('📈 ', '');
+    const exampleFileName: string = selectedExample.label.replace('📊 ', '');
     const exampleFileUri: Uri = Uri.file(path.join(examplesPath, exampleFileName));
     workspace.openTextDocument(exampleFileUri).then(document => {
       window.showTextDocument(document, ViewColumn.One);
