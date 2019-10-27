@@ -12,9 +12,12 @@
 
 # Features
 
-Chart.js Preivew 📊 via [`json5`](https://json5.org/) `.chart` config files.
+Chart.js Preivew 📊 of [`json5`](https://json5.org/) `.chart` config files.
 
-See [`./samples`](https://github.com/RandomFractals/vscode-chartjs/tree/master/samples) for examples.
+See [`./samples`](https://github.com/RandomFractals/vscode-chartjs/tree/master/samples) 
+for chart config examples. 
+
+**Note**: more [Chart.js Samples](https://www.chartjs.org/samples/latest/) will be added soon!
 
 # Usage 
 
