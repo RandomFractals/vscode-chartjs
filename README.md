@@ -1,6 +1,11 @@
 # vscode-chartjs
 
-[Chart.js](https://github.com/chartjs/Chart.js) preview for vscode.
+[![Apache-2.0 License](https://img.shields.io/badge/license-Apache2-orange.svg?color=green)](http://opensource.org/licenses/Apache-2.0)
+<a href='https://ko-fi.com/dataPixy' target='_blank' title='support: https://ko-fi.com/dataPixy'>
+  <img height='24' style='border:0px;height:20px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' alt='https://ko-fi.com/dataPixy' /></a>
+
+
+[Chart.js](https://github.com/chartjs/Chart.js) Preview 📊 for [VSCcode](https://code.visualstudio.com/)
 
 ![Chart.js Preview](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-preview.png?raw=true 
  "Chart.js Preview")
@@ -14,7 +19,7 @@ See [`./samples`](https://github.com/RandomFractals/vscode-chartjs/tree/master/s
 # Usage 
 
 1. Use `Chart: Chart Samples` command from `View -> Command Pallette...` menu 
-for a quick list of built-in Chart.js samples.
+for a quick list of built-in chart config examples.
 
 2. Run `Chart: Preview Chart` command on an open `.chart.json5` chart config document to Preview 📊
 
