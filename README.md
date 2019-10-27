@@ -17,7 +17,7 @@ Chart.js Preivew 📊 of [`json5`](https://json5.org/) `.chart` config files.
 See [`./samples`](https://github.com/RandomFractals/vscode-chartjs/tree/master/samples) 
 for chart config examples. 
 
-**Note**: more [Chart.js Samples](https://www.chartjs.org/samples/latest/) will be added soon!
+**Note**: more [Chart.js Samples](https://www.chartjs.org/samples/latest/) will be added in the next v. update!
 
 # Usage 
 
@@ -25,8 +25,6 @@ for chart config examples.
 for a quick list of built-in chart config examples.
 
 2. Run `Chart: Preview Chart` command on an open `.chart.json5` chart config document to Preview 📊
-
-3. Save updated `*.chart.json5` document to Preview updated Chart 📊
 
 # Chart.js Preview 📊 VSCode Contributions
 
