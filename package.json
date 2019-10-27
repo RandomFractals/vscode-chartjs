@@ -1,7 +1,7 @@
 {
   "name": "vscode-chartsjs",
   "displayName": "Chart.js Preview",
-  "description": "Chart.js Preview extension",
+  "description": "Chart.js Preview 📊 extension",
   "version": "1.0.0",
   "icon": "images/chart.png",
   "publisher": "RandomFractalsInc",
@@ -18,13 +18,16 @@
   "bugs": "https://github.com/RandomFractals/vscode-chartjs/issues",
   "homepage": "https://github.com/RandomFractals/vscode-chartjs/README.md",
   "keywords": [
+    "chart.js",
     "chart",
     "viewer",
     "preview",
     "charts",
     "dataViz",
     "dev tools",
-    "chart samples"
+    "chart samples",
+    "json5 chart config",
+    "chart examples"
   ],
   "galleryBanner": {
     "color": "#333",
