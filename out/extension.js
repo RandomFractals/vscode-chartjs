@@ -98,7 +98,6 @@ function createChartPreviewCommand(viewType, extensionPath, viewTemplate) {
                 return;
             }
         }
-        let webviewPanel;
         const preview = new chart_preview_1.ChartPreview(viewType, extensionPath, resource, viewColumn, viewTemplate);
         preview_manager_1.previewManager.add(preview);
         return preview.webview;

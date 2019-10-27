@@ -86,29 +86,31 @@ class ChartPreview {
             this._html = template.content.replace(/\{scripts\}/g, scriptsPath);
         }
         // initialize webview panel
-        if (panel) {
-            this._panel = panel;
-        }
-        this.initWebview(viewType, viewColumn);
+        this._panel = this.initWebview(viewType, viewColumn, panel);
         this.configure();
     } // end of constructor()
     /**
      * Initializes chart preview webview panel.
      * @param viewType Preview webview type, i.e. chart.preview or chart.samples view.
      * @param viewColumn vscode IDE view column to display preview in.
+     * @param viewPanel Optional web view panel to initialize.
      */
-    initWebview(viewType, viewColumn) {
-        if (!this._panel) {
+    initWebview(viewType, viewColumn, viewPanel) {
+        if (!viewPanel) {
             // create new webview panel
-            this._panel = vscode_1.window.createWebviewPanel(viewType, this._title, viewColumn, this.getWebviewOptions());
-            this._panel.iconPath = vscode_1.Uri.file(path.join(this._extensionPath, './images/chart.svg'));
+            viewPanel = vscode_1.window.createWebviewPanel(viewType, this._title, viewColumn, this.getWebviewOptions());
+            viewPanel.iconPath = vscode_1.Uri.file(path.join(this._extensionPath, './images/chart.svg'));
+            this._panel = viewPanel;
+        }
+        else {
+            this._panel = viewPanel;
         }
         // dispose preview panel 
-        this._panel.onDidDispose(() => {
+        viewPanel.onDidDispose(() => {
             this.dispose();
         }, null, this._disposables);
         // TODO: handle view state changes later
-        this._panel.onDidChangeViewState((viewStateEvent) => {
+        viewPanel.onDidChangeViewState((viewStateEvent) => {
             let active = viewStateEvent.webviewPanel.visible;
         }, null, this._disposables);
         // process web view messages
@@ -128,6 +130,7 @@ class ChartPreview {
                     break;
             }
         }, null, this._disposables);
+        return viewPanel;
     } // end of initWebview()
     /**
      * Creates webview options with local resource roots, etc

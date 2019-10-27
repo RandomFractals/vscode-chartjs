@@ -118,10 +118,8 @@ function createChartPreviewCommand(viewType: string,
         return;
       }
 		}
-		let webviewPanel: WebviewPanel | undefined;
     const preview: ChartPreview = new ChartPreview(viewType,
-      extensionPath, resource, viewColumn, viewTemplate);
-		
+      extensionPath, resource, viewColumn, viewTemplate);		
     previewManager.add(preview);
     return preview.webview;
   });

@@ -119,10 +119,7 @@ export class ChartPreview {
     }
 
     // initialize webview panel
-    if (panel) {
-      this._panel = panel;
-    }
-    this.initWebview(viewType, viewColumn);
+    this._panel = this.initWebview(viewType, viewColumn, panel);
     this.configure();
   } // end of constructor()
 
@@ -130,21 +127,28 @@ export class ChartPreview {
    * Initializes chart preview webview panel.
    * @param viewType Preview webview type, i.e. chart.preview or chart.samples view.
    * @param viewColumn vscode IDE view column to display preview in.
+   * @param viewPanel Optional web view panel to initialize.
    */
-  private initWebview(viewType: string, viewColumn: ViewColumn): void {
-    if (!this._panel) {
+  private initWebview(viewType: string, 
+    viewColumn: ViewColumn, 
+    viewPanel: WebviewPanel | undefined): WebviewPanel {
+    if (!viewPanel) {
       // create new webview panel
-      this._panel = window.createWebviewPanel(viewType, this._title, viewColumn, this.getWebviewOptions());
-      this._panel.iconPath = Uri.file(path.join(this._extensionPath, './images/chart.svg'));
+      viewPanel = window.createWebviewPanel(viewType, this._title, viewColumn, this.getWebviewOptions());
+      viewPanel.iconPath = Uri.file(path.join(this._extensionPath, './images/chart.svg'));
+      this._panel = viewPanel;
+    }
+    else {
+      this._panel = viewPanel;
     }
 
     // dispose preview panel 
-    this._panel.onDidDispose(() => {
+    viewPanel.onDidDispose(() => {
       this.dispose();
     }, null, this._disposables);
 
     // TODO: handle view state changes later
-    this._panel.onDidChangeViewState(
+    viewPanel.onDidChangeViewState(
       (viewStateEvent: WebviewPanelOnDidChangeViewStateEvent) => {
       let active = viewStateEvent.webviewPanel.visible;
     }, null, this._disposables);
@@ -166,6 +170,8 @@ export class ChartPreview {
           break;  
       }
     }, null, this._disposables);
+
+    return viewPanel;
   } // end of initWebview()
 
   /**
