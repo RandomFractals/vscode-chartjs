@@ -14,6 +14,7 @@ import {
 } from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import * as json5 from 'json5';
 import * as config from './config';
 import {Logger, LogLevel} from './logger';
 import {previewManager} from './preview.manager';
@@ -111,7 +112,7 @@ export class ChartPreview {
     }
 
     // create html template for the webview with scripts path replaced
-    const scriptsPath: string = Uri.file(path.join(this._extensionPath, 'scripts'))
+    const scriptsPath: string = Uri.file(path.join(this._extensionPath, './node_modules/chart.js/dist'))
       .with({scheme: 'vscode-resource'}).toString(true);
     if (template) {
       this._html = template.content.replace(/\{scripts\}/g, scriptsPath);
@@ -193,7 +194,7 @@ export class ChartPreview {
       localResourceRoots.push(Uri.file(path.dirname(this.uri.fsPath)));
     }
     // add chart preview js scripts
-    localResourceRoots.push(Uri.file(path.join(this._extensionPath, 'scripts')));
+    localResourceRoots.push(Uri.file(path.join(this._extensionPath, './node_modules/chart.js/dist')));
     this._logger.logMessage(LogLevel.Debug, 'getLocalResourceRoots():', localResourceRoots);
     return localResourceRoots;
   }
@@ -209,22 +210,22 @@ export class ChartPreview {
   }
 
   /**
-   * Reload chart preview on chart spec json doc save changes or vscode IDE reload.
+   * Reload chart preview on chart json doc save changes or vscode IDE reload.
    */
   public refresh(): void {
     // reveal corresponding chart preview panel
     this._panel.reveal(this._panel.viewColumn, true); // preserve focus
-    // open chart json spec text document
+    // open chart json config text document
     workspace.openTextDocument(this.uri).then(document => {
       this._logger.logMessage(LogLevel.Debug, 'refresh(): file:', this._fileName);
       const chartSpec: string = document.getText();
       try {
-        const spec = JSON.parse(chartSpec);
+        const chartConfig = json5.parse(chartSpec);
         this.webview.postMessage({
           command: 'refresh',
           fileName: this._fileName,
           uri: this._uri.toString(),
-          spec: chartSpec,
+          config: chartConfig,
         });
       }
       catch (error) {

@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 const vscode_1 = require("vscode");
 const path = require("path");
+const json5 = require("json5");
 const config = require("./config");
 const logger_1 = require("./logger");
 const preview_manager_1 = require("./preview.manager");
@@ -79,7 +80,7 @@ class ChartPreview {
                 break;
         }
         // create html template for the webview with scripts path replaced
-        const scriptsPath = vscode_1.Uri.file(path.join(this._extensionPath, 'scripts'))
+        const scriptsPath = vscode_1.Uri.file(path.join(this._extensionPath, './node_modules/chart.js/dist'))
             .with({ scheme: 'vscode-resource' }).toString(true);
         if (template) {
             this._html = template.content.replace(/\{scripts\}/g, scriptsPath);
@@ -153,7 +154,7 @@ class ChartPreview {
             localResourceRoots.push(vscode_1.Uri.file(path.dirname(this.uri.fsPath)));
         }
         // add chart preview js scripts
-        localResourceRoots.push(vscode_1.Uri.file(path.join(this._extensionPath, 'scripts')));
+        localResourceRoots.push(vscode_1.Uri.file(path.join(this._extensionPath, './node_modules/chart.js/dist')));
         this._logger.logMessage(logger_1.LogLevel.Debug, 'getLocalResourceRoots():', localResourceRoots);
         return localResourceRoots;
     }
@@ -167,22 +168,22 @@ class ChartPreview {
         // see: this.refresh();
     }
     /**
-     * Reload chart preview on chart spec json doc save changes or vscode IDE reload.
+     * Reload chart preview on chart json doc save changes or vscode IDE reload.
      */
     refresh() {
         // reveal corresponding chart preview panel
         this._panel.reveal(this._panel.viewColumn, true); // preserve focus
-        // open chart json spec text document
+        // open chart json config text document
         vscode_1.workspace.openTextDocument(this.uri).then(document => {
             this._logger.logMessage(logger_1.LogLevel.Debug, 'refresh(): file:', this._fileName);
             const chartSpec = document.getText();
             try {
-                const spec = JSON.parse(chartSpec);
+                const chartConfig = json5.parse(chartSpec);
                 this.webview.postMessage({
                     command: 'refresh',
                     fileName: this._fileName,
                     uri: this._uri.toString(),
-                    spec: chartSpec,
+                    config: chartConfig,
                 });
             }
             catch (error) {
