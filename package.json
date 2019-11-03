@@ -126,10 +126,10 @@
     "mocha": "^6.2.2",
     "typescript": "^3.6.4",
     "tslint": "^5.20.0",
-    "vscode-test": "^1.2.0"
+    "vscode-test": "^1.2.2"
   },
   "dependencies": {
-    "chart.js": "^2.9.0",
+    "chart.js": "^2.9.2",
     "json5": "^2.1.1"
   }
 }
