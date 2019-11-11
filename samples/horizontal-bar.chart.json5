@@ -1,0 +1,36 @@
+{
+  type: 'horizontalBar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    datasets: [{
+      label: 'Dataset 1',
+      backgroundColor: 'rgba(255, 99, 132, 0.2)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      borderWidth: 1,
+      data: [-52, -87, 29, 99, 32, 78]
+    }, {
+      label: 'Dataset 2',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      borderWidth: 1,
+      data: [82, -45, 5, -56, -83, -85]
+    }]
+  },
+  options: {
+		// Elements options apply to all of the options unless overridden in a dataset
+		// In this case, we are setting the border of each horizontal bar to be 2px wide
+		elements: {
+			rectangle: {
+				borderWidth: 2,
+			}
+		},
+		responsive: true,
+		legend: {
+			position: 'right',
+		},
+		title: {
+		 	display: true,
+		  text: 'Chart.js Horizontal Bar Chart'
+		}
+	}
+}
