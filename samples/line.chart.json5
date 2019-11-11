@@ -1,0 +1,50 @@
+{
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    datasets: [{
+      label: 'Dataset 1',
+      backgroundColor: 'rgba(255, 99, 132, 0.8)',
+      borderColor: 'rgba(255, 99, 132, 1)',
+      fill: false,
+      data: [-52, -87, 29, 99, 32, 78]
+    }, {
+      label: 'Dataset 2',
+      backgroundColor: 'rgba(54, 162, 235, 0.8)',
+      borderColor: 'rgba(54, 162, 235, 1)',
+      fill: false,
+      data: [82, -45, 5, -56, -83, -85]
+    }]
+  },
+  options: {
+		responsive: true,
+		title: {
+		 	display: true,
+		  text: 'Line Chart'
+		},
+    tooltips: {
+			mode: 'index',
+			intersect: false,
+		},
+		hover: {
+			mode: 'nearest',
+			intersect: true
+		},
+		scales: {
+			xAxes: [{
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Value'
+				}
+			}]
+		}	
+  }
+}
