@@ -1,0 +1,57 @@
+{
+  type: 'line',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    datasets: [{
+      label: 'Unfilled',
+      backgroundColor: '#1E90FF',
+      borderColor: '#1E90FF',
+      fill: false,
+      data: [82, -45, 5, -56, -83, -85]
+    }, {
+      label: 'Dashed',
+      backgroundColor: '#00CED1',
+      borderColor: '#00CED1',
+      borderDash: [5, 5],
+      fill: false,
+      data: [5, 90, -98, 99, -80, 85]
+    }, {
+      label: 'Filled',
+      backgroundColor: '#F06060',
+      borderColor: '#F08080',
+      fill: true,
+      data: [-52, -87, 29, 99, 32, 78]
+    }]
+  },
+  options: {
+		responsive: true,
+    title: {
+			display: true,
+			text: 'Line Styles Chart'
+		},
+		tooltips: {
+			mode: 'index',
+			intersect: false
+		},
+    hover: {
+			mode: 'nearest',
+			intersect: true
+		},
+		scales: {
+      xAxes: [{
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Month'
+				}
+			}],
+			yAxes: [{
+				display: true,
+				scaleLabel: {
+					display: true,
+					labelString: 'Value'
+				}
+			}]		
+    }	
+  }
+}
