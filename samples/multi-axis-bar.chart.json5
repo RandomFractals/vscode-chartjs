@@ -1,0 +1,51 @@
+{
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    datasets: [{
+      label: 'Dataset 1',
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.8)',
+        'rgba(54, 162, 235, 0.8)',
+        'rgba(255, 206, 86, 0.8)',
+        'rgba(75, 192, 192, 0.8)',
+        'rgba(153, 102, 255, 0.8)',
+        'rgba(255, 159, 64, 0.8)'
+      ],
+      yAxisID: 'y-axis-1',
+      data: [-52, -87, 29, 99, 32, 78]
+    }, {
+      label: 'Dataset 2',
+      backgroundColor: '#CCCCCC',
+      yAxisID: 'y-axis-2',
+      data: [82, -45, 5, -56, -83, 45]
+    }]
+  },
+  options: {
+    title: {
+			display: true,
+			text: 'Multi Axis Bar Chart'
+		},
+		tooltips: {
+			mode: 'index',
+			intersect: false
+		},
+		responsive: true,
+		scales: {
+			yAxes: [{
+				type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+				display: true,
+				position: 'left',
+				id: 'y-axis-1',
+      }, {
+        type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+				display: true,
+				position: 'right',
+				id: 'y-axis-2',
+				gridLines: {
+			  	drawOnChartArea: false
+				}
+			}]
+		}	
+  }
+}
