@@ -1,0 +1,41 @@
+{
+  type: 'bar',
+  data: {
+    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    datasets: [{
+      label: 'Dataset 1',
+      backgroundColor: '#FF69B4',
+      stack: 'Stack 0',
+      data: [-52, -87, 29, 99, 32, 78]
+    }, {
+      label: 'Dataset 2',
+      backgroundColor: '#1E90FF',
+      stack: 'Stack 0',
+      data: [82, -45, 5, -56, -83, -85]
+    }, {
+      label: 'Dataset 3',
+      backgroundColor: '#00CED1',
+      stack: 'Stack 1',
+      data: [5, 90, -98, 99, -80, 85]
+    }]
+  },
+  options: {
+    title: {
+			display: true,
+			text: 'Stacked Group Bar Chart'
+		},
+		tooltips: {
+			mode: 'index',
+			intersect: false
+		},
+		responsive: true,
+		scales: {
+			xAxes: [{
+				stacked: true,
+			}],
+			yAxes: [{
+				stacked: true
+			}]
+		}	
+  }
+}
