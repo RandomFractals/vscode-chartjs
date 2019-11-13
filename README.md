@@ -13,6 +13,9 @@
 ![Chart.js Preview](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-preview.png?raw=true 
  "Chart.js Preview")
 
+![Chart.js Samples](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-line-styles.png?raw=true 
+ "Chart.js Samples")
+
 # Features
 
 Chart.js Preivew 📊 of [`json5`](https://json5.org/) `.chart` config files.
