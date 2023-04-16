@@ -4,42 +4,42 @@
 <a href='https://ko-fi.com/dataPixy' target='_blank' title='support: https://ko-fi.com/dataPixy'>
   <img height='24' style='border:0px;height:20px;' src='https://az743702.vo.msecnd.net/cdn/kofi3.png?v=2' alt='https://ko-fi.com/dataPixy' /></a>
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/RandomFractalsInc.vscode-chartjs.svg?color=orange&style=?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-chartjs)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs/RandomFractalsInc.vscode-chartjs.svg?color=orange)](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-chartjs)
-[![Downloads](https://vsmarketplacebadge.apphb.com/downloads/RandomFractalsInc.vscode-chartjs.svg?color=orange)](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-chartjs)
+[![Version](https://img.shields.io/visual-studio-marketplace/v/RandomFractalsInc.vscode-chartjs.svg?color=orange&style=?style=for-the-badge&logo=visual-studio-code)](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-chartjs)
+[![Installs](https://img.shields.io/visual-studio-marketplace/i/RandomFractalsInc.vscode-chartjs.svg?color=orange)](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-chartjs)
+[![Downloads](https://img.shields.io/visual-studio-marketplace/d/RandomFractalsInc.vscode-chartjs.svg?color=orange)](https://marketplace.visualstudio.com/items?itemName=RandomFractalsInc.vscode-chartjs)
 
 [Chart.js](https://github.com/chartjs/Chart.js) Preview 📊 for [VSCcode](https://code.visualstudio.com/)
 
-![Chart.js Preview](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-preview.png?raw=true 
+![Chart.js Preview](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-preview.png?raw=true
  "Chart.js Preview")
 
-![Chart.js Samples](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-line-styles.png?raw=true 
+![Chart.js Samples](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-line-styles.png?raw=true
  "Chart.js Samples")
 
 # Features
 
 Chart.js Preivew 📊 of [`json5`](https://json5.org/) `.chart` config files.
 
-See [`./samples`](https://github.com/RandomFractals/vscode-chartjs/tree/master/samples) 
-for chart config examples. 
+See [`./samples`](https://github.com/RandomFractals/vscode-chartjs/tree/master/samples)
+for chart config examples.
 
 **Note**: more [Chart.js Samples](https://www.chartjs.org/samples/latest/) will be added in the next v. update!
 
-# Usage 
+# Usage
 
-1. Use `Chart: Chart Samples` command from `View -> Command Pallette...` menu 
+1. Use `Chart: Chart Samples` command from `View -> Command Pallette...` menu
 for a quick list of built-in chart config examples.
 
 2. Run `Chart: Preview Chart` command on an open `.chart.json5` chart config document to Preview 📊
 
 # Chart.js Preview 📊 VSCode Contributions
 
-![Chart.js Preview Contributions](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-contributions.png?raw=true 
+![Chart.js Preview Contributions](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-contributions.png?raw=true
  "Vega Viewer VSCode Contributions")
 
 # Chart.js Preview 📊 Commands
 
-![Chart.js Preview Commands](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-commands.png?raw=true 
+![Chart.js Preview Commands](https://github.com/RandomFractals/vscode-chartjs/blob/master/images/vscode-chartjs-commands.png?raw=true
  "Chart.js Preivew VSCode Commands")
 
 # Dev Log
@@ -58,6 +58,6 @@ $ code .
 
 # Contributions
 
-Any & all test, code || feedback contributions are welcome. 
+Any & all test, code || feedback contributions are welcome.
 
 Open an issue || create a pull request to make this Chart.js Preview 📊 vscode extension work better for all. 🤗
